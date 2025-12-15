@@ -1,0 +1,288 @@
+/* --- Base Reset & Fonts --- */
+/* Note: Global reset is handled by globals.css */
+
+/* --- Main Container --- */
+.verification-container {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    margin: 0 auto;
+}
+
+/* --- Shield Icon --- */
+.icon-wrapper {
+    margin-bottom: 24px;
+}
+
+.shield-icon {
+    width: 48px;
+    height: 48px;
+    display: block;
+}
+
+/* --- Typography --- */
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #8E8E93;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* --- Progress Indicator --- */
+.progress-indicator {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2EE67C;
+    margin-bottom: 24px;
+}
+
+/* --- Verification Options --- */
+.verification-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.verification-item {
+    width: 100%;
+    height: 48px;
+    background-color: #1a1d1d;
+    border-radius: 8px;
+    border: 1px solid #3a3d3d;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    text-decoration: none;
+    cursor: pointer;
+    /* Added for React interactive elements */
+}
+
+.item-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    opacity: 0.7;
+}
+
+.item-label {
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.item-action {
+    font-size: 13px;
+    color: #2EE67C;
+    font-weight: 500;
+}
+
+/* --- Confirm Button --- */
+.confirm-btn {
+    width: 100%;
+    height: 48px;
+    background-color: #2EE67C;
+    color: #000000;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+    user-select: none;
+    margin-bottom: 20px;
+}
+
+.confirm-btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* --- Help Section --- */
+.help-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #8E8E93;
+    margin-bottom: 6px;
+}
+
+.support-link {
+    font-size: 13px;
+    color: #E5A93D;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.support-link:active {
+    opacity: 0.7;
+}
+
+/* --- Footer --- */
+.footer {
+    font-size: 12px;
+    color: #5a5d5d;
+    padding-bottom: 10px;
+}
+
+/* --- Mobile Optimization --- */
+@media (max-height: 550px) {
+    /* body padding handled by layout/component */
+
+    .progress-indicator {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .verification-options {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+}
+
+/* --- Popup --- */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Bottom alignment */
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: #1a1d1d;
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 24px 40px 24px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    border-top: 1px solid #3a3d3d;
+    position: relative;
+}
+
+.popup-overlay.active .popup-content {
+    transform: translateY(0);
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #8E8E93;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+}
+
+.popup-shield-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.popup-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.popup-subtitle {
+    font-size: 13px;
+    color: #8E8E93;
+    margin-bottom: 24px;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+.popup-input {
+    width: 100%;
+    padding: 14px;
+    background: #111313;
+    border: 1px solid #3a3d3d;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-bottom: 16px;
+    outline: none;
+    text-align: center;
+}
+
+.popup-input:focus {
+    border-color: #2EE67C;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.popup-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.popup-btn.cancel {
+    background: #3a3d3d;
+    color: #FFFFFF;
+}
+
+.popup-btn.confirm {
+    background: #00C853;
+    /* Darker green */
+    color: #FFFFFF;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+}

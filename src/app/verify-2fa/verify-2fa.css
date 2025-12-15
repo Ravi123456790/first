@@ -1,0 +1,157 @@
+/* --- Base Reset & Fonts --- */
+/* Note: Global reset is handled by globals.css, but we keep specific overrides here if needed */
+
+/* --- Main Container --- */
+.auth-container {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    /* Added to center in the page since body flex might be different in Next.js layout */
+}
+
+/* --- Shield Icon --- */
+.icon-wrapper {
+    margin-bottom: 24px;
+}
+
+.shield-icon {
+    width: 48px;
+    height: 48px;
+    display: block;
+}
+
+/* --- Typography --- */
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #8E8E93;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+/* --- Input Section --- */
+.input-group {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-label {
+    font-size: 13px;
+    color: #8E8E93;
+    margin-bottom: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.input-field-wrapper {
+    width: 100%;
+    height: 44px;
+    background-color: #1a1d1d;
+    border-radius: 8px;
+    border: 1px solid #3a3d3d;
+    display: flex;
+    align-items: center;
+    padding: 0 6px 0 12px;
+    transition: border-color 0.2s ease;
+}
+
+.input-field-wrapper:focus-within {
+    border-color: #4a4d4d;
+}
+
+.input-field-wrapper input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    padding: 0;
+    height: 100%;
+}
+
+.input-field-wrapper input::placeholder {
+    color: #5a5d5d;
+}
+
+/* --- Paste Button --- */
+.paste-btn {
+    background-color: #3a3d3d;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: opacity 0.2s;
+    user-select: none;
+}
+
+.paste-btn:active {
+    opacity: 0.7;
+}
+
+/* --- Helper Link --- */
+.help-link {
+    font-size: 13px;
+    color: #8E8E93;
+    text-decoration: none;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.help-link:active {
+    color: #FFFFFF;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    width: 100%;
+    height: 48px;
+    /* BC.GAME green color */
+    background-color: #2EE67C;
+    color: #000000;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+    user-select: none;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* --- Mobile Optimization --- */
+@media (max-height: 550px) {
+
+    /* Note: body padding is handled in the component or layout, but we can adjust margins here if needed */
+    .icon-wrapper {
+        margin-bottom: 16px;
+    }
+
+    .subtitle {
+        margin-bottom: 20px;
+    }
+}

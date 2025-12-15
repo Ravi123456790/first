@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+/* Texta Alt Font Family */
+@font-face {
+  font-family: 'Texta Alt';
+  src: url('/fonts/TextaAltBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Texta Alt';
+  src: url('/fonts/TextaAltBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Texta Alt';
+  src: url('/fonts/TextaAltMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Texta Alt';
+  src: url('/fonts/TextaAltRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Texta Alt Black';
+  src: url('/fonts/TextaAltBlack.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-background: #232626;
+  --color-foreground: #ffffff;
+  --color-primary: #2EE67C;
+  --color-secondary: #B3BEC1;
+  --color-tertiary: #849194;
+  --color-third: #e4eaf019;
+  --color-input-bg: #1E2121;
+  --color-input-border: #3a4142;
+  --color-text-muted: #849194;
+  --color-text-dark: #B3BEC1;
+  --color-divider: rgba(228, 234, 240, 0.15);
+
+  /* Color variables matching original UI (html.dark from style.css) */
+  --brand: 36 238 137;
+  --primary: 255 255 255;
+  --primary_brand: 0 0 0;
+  --secondary: 179 190 193;
+  --tertiary: 132 145 148;
+  --quarterary: 161 175 178;
+  --layer1: 30 33 33;
+  --layer2: 35 38 38;
+  --layer3: 41 45 46;
+  --layer4: 50 55 56;
+  --layer5: 58 65 66;
+  --tab_selected: 58 65 66;
+  --input_darken: 30 33 33;
+  --input_bright: 41 45 46;
+  --tab_padding: 39 43 44;
+  --tab_nopadding: 50 55 56;
+
+  --font-sans: "Texta Alt Black";
+  --safe-top: env(safe-area-inset-top);
+}
+
+.lock-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* 1. Global Typography - Increased base font size */
+html {
+  font-size: 14.5px;
+}
+
+/* Force Texta Alt Black font on ALL elements */
+*,
+*::before,
+*::after {
+  font-family: "Texta Alt Black" !important;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: "Texta Alt Black" !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility classes for specific components */
+@layer utilities {
+  .lock-scroll {
+    overflow: hidden;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+  }
+
+  .bg-input_darken {
+    background-color: rgb(var(--input_darken));
+  }
+
+  .border-third {
+    border-color: var(--color-third);
+  }
+
+  .bg-third {
+    background-color: var(--color-third);
+  }
+}
+
+/* 3. Input Field Styling - Enhanced for visual clarity */
+.input {
+  border: 1px solid #3e4748 !important;
+  border-radius: 10px;
+  background-color: #1E2121 !important;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.input>input,
+.input input {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  color: #e6ecec !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  font-family: avertastd, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.input>input::placeholder,
+.input input::placeholder {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  color: #c7cfd1 !important;
+  opacity: 1;
+  font-family: avertastd, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* 3. Tabs - Flatter, cleaner appearance */
+.tabs-btn {
+  font-weight: 700 !important;
+  font-size: 14.7px !important;
+}
+
+.tabs-btn[aria-selected="true"] {
+  background-color: rgb(58, 65, 66) !important;
+  color: rgb(255, 255, 255) !important;
+  font-weight: 800 !important;
+}
+
+.tabs-btn:not([aria-selected="true"]) {
+  color: rgb(179, 190, 193) !important;
+}
+
+/* Input focus state */
+.input:focus-within {
+  border-color: rgb(36, 238, 137) !important;
+  caret-color: rgb(36, 238, 137) !important;
+}
+
+/* Error Toast Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Country Selector Modal - Telegram Mini App */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+
+  /* Mobile: Bottom sheet style */
+  .country-modal-mobile {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+/* 4. Primary Sign In Button - Subtle glow */
+.button-brand {
+  box-shadow: 0 0 8px rgba(36, 238, 137, 0.2) !important;
+  font-size: 105% !important;
+}
+
+/* 5. Create account link styling */
+.text-brand {
+  color: rgb(36, 238, 137) !important;
+  font-weight: 700 !important;
+}
+
+/* 6. Divider styling */
+.divider-line {
+  height: 1px;
+  background-color: var(--color-divider);
+  flex: 1;
+}
+
+/* 7. Sign In with passkey button */
+.passkey-btn {
+  border: 1.5px solid var(--color-input-border) !important;
+  font-weight: 700 !important;
+  font-size: 0.9375rem !important;
+}
+
+.social-btn .icon {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Captcha Overlay Animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
